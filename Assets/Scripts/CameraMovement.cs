@@ -18,7 +18,12 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+        float dx = Input.GetAxisRaw("Mouse X");
+        float dy = Input.GetAxisRaw("Mouse Y");
 
+        cam.transform.rotation *= Quaternion.AngleAxis(-dy * 2.5f, Vector3.right);
+
+        cam.transform.eulerAngles += Vector3.up * dx * 5;
     }
 
 
