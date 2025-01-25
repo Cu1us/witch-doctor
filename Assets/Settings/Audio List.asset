@@ -16,7 +16,42 @@ MonoBehaviour:
   - name: Cauldron
     data:
       clips:
-      - {fileID: 0}
-      - {fileID: 0}
+      - {fileID: 8300000, guid: 91c896e1a2d3b53468ec4e687f37c7f3, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Cat
+    data:
+      clips:
+      - {fileID: 8300000, guid: f5576747716581e4dbdb7f37a5ad1fd4, type: 3}
+      - {fileID: 8300000, guid: 4d504608cc81abe40a9a7971bff666c5, type: 3}
+      - {fileID: 8300000, guid: b801aacafc63d7940a0dcece410127c9, type: 3}
+      - {fileID: 8300000, guid: 605eb37fffc216d4d87f0e07405e38c3, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Sparkle
+    data:
+      clips:
+      - {fileID: 8300000, guid: 60370bfac53f3974e9817eccecd5ee7f, type: 3}
+      - {fileID: 8300000, guid: 61cf7bb4eb982b647aa3ae138c32fe43, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Harp Happy
+    data:
+      clips:
+      - {fileID: 8300000, guid: 6ec3f12fec5a40f41a847e32a88a339a, type: 3}
+      - {fileID: 8300000, guid: fa6fa69dd05db5a4bbea552cbc9173be, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Harp Sad
+    data:
+      clips:
+      - {fileID: 8300000, guid: c82205b2650b00c459e975af793647f7, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Boing
+    data:
+      clips:
+      - {fileID: 8300000, guid: 4e873e05817a4384a84c30e86a38dfed, type: 3}
+      - {fileID: 8300000, guid: 779e091f21dea2d4ab6d0bbbab066edd, type: 3}
       pitchVariation: 0.1
       volume: 1
