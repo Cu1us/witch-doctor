@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3f75117ce8657ada8f533a8b9e617e, type: 3}
+  m_Name: PEACE
+  m_EditorClassIdentifier: 
+  clipboardTexture: {fileID: 2800000, guid: 0dc37c37eb90a264c81fe0c261d4bebe, type: 3}
+  neededIngredients: 03000000
