@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public float cauldronInsertJumpHeight;
     public float cauldronInsertJumpDuration;
 
+    public GameObject poofParticle;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -28,5 +30,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(thing.gameObject);
         });
+    }
+
+    public static void SpawnParticle(GameObject particle, Vector3 position)
+    {
+        Destroy(Instantiate(particle, position, Quaternion.identity), 3);
     }
 }
