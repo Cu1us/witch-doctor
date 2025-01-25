@@ -13,6 +13,16 @@ public class Clipboard : MonoBehaviour
 
     public Transform clipboardUpPos;
     public Transform clipboardDownPos;
+    public Transform clipboardContainer;
+
+    public float flipDuration;
+    public Ease flipEase;
+
+    public float unflippedRot;
+    public float flippedRot;
+
+    bool flipping = false;
+    bool flipped = false;
 
     void Awake()
     {
@@ -33,6 +43,20 @@ public class Clipboard : MonoBehaviour
         Debug.Log(mainCamera.transform.eulerAngles);
         transform.position = Vector3.Lerp(clipboardDownPos.position, clipboardUpPos.position, lerp);
         transform.rotation = Quaternion.Lerp(clipboardDownPos.rotation, clipboardUpPos.rotation, lerp);
+
+        if (Input.GetKeyDown(KeyCode.Space) && !flipping)
+        {
+            Vector3 flipTargetRot = Vector3.right * (flipped ? unflippedRot : flippedRot);
+            flipped = !flipped;
+            clipboardContainer.DOLocalRotate(flipTargetRot, flipDuration)
+            .SetEase(flipEase)
+            .OnComplete(OnFinishFlip);
+        }
+    }
+
+    void OnFinishFlip()
+    {
+        flipping = false;
     }
 
     public void SetClient(Client client)
