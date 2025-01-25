@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         clipboard.SetClient(currentClient);
     }
 
-    public static void PutThingInCauldron(Transform thing)
+    public static void PutThingInCauldron(Transform thing, Ingredient ingredientValue, Color ingredientColor)
     {
         if (thing.TryGetComponent(out BaseInteractable interactable))
         {
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         .OnComplete(() =>
         {
             Destroy(thing.gameObject);
+            Instance.cauldron.AddIngredient(ingredientValue, ingredientColor);
         });
     }
 

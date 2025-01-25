@@ -21,7 +21,6 @@ public class BaseInteractable : MonoBehaviour, IInteractable
     {
         if (!interactable) return;
         OnInteract?.Invoke();
-        GameManager.PutThingInCauldron(transform);
     }
 
     public virtual void OnHover()
