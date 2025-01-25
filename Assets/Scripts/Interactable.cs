@@ -6,9 +6,13 @@ using UnityEngine.Events;
 public class BaseInteractable : MonoBehaviour, IInteractable
 {
     public UnityEvent OnInteract;
-    [HideInInspector][SerializeField] new public Renderer renderer;
+    [SerializeField] new public Renderer renderer;
+
+    const float defaultWarpAmount = 0.2f;
 
     public bool interactable = true;
+    //public bool overrideWarpAmount = false;
+    //public float selectedWarpAmount = 0f;
 
     public Material hoverMaterial;
     Material baseMaterial;
@@ -29,6 +33,7 @@ public class BaseInteractable : MonoBehaviour, IInteractable
     public virtual void OnHoverStart()
     {
         if (!interactable) return;
+        //if (overrideWarpAmount) hoverMaterial.SetFloat("_Width", selectedWarpAmount); else hoverMaterial.SetFloat("_Width", defaultWarpAmount);
         renderer.sharedMaterials = new Material[] { baseMaterial, hoverMaterial };
     }
 
