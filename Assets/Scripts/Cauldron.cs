@@ -1,18 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Cauldron : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<Ingredient> ingredients;
+
+    public void AddIngredient(Ingredient toAdd)
     {
-        
+        ingredients.Add(toAdd);
+        CheckIngredients();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CheckIngredients()
     {
-        
+
     }
+
+    public bool HasAllIngredients()
+    {
+        foreach (Ingredient requiredIngredient in GameManager.currentClient.neededIngredients)
+        {
+            if (!ingredients.Contains(requiredIngredient))
+            {
+                return false;
+            }
+        }
+        return ingredients.Count == GameManager.currentClient.neededIngredients.Length;
+    }
+}
+
+public enum Ingredient
+{
+    COMPANY,
+    RICHES,
+    AMBITION,
+    PEACE
 }
