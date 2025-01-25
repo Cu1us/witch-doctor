@@ -35,7 +35,11 @@ public class BaseInteractable : MonoBehaviour, IInteractable
     protected virtual void Reset()
     {
         renderer = GetComponent<Renderer>();
-        baseMaterial = renderer.sharedMaterial;
+    }
+
+    protected virtual void Awake()
+    {
+        baseMaterial = renderer.sharedMaterials[0];
     }
 }
 
