@@ -13,9 +13,32 @@ public class GameManager : MonoBehaviour
 
     public GameObject poofParticle;
 
+    public Cauldron cauldron;
+    public Clipboard clipboard;
+
+    public Client[] clients;
+    public int currentClientIndex;
+    public static Client currentClient => Instance.clients[Instance.currentClientIndex];
+
     void Awake()
     {
         if (Instance == null) Instance = this;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NextClient();
+        }
+    }
+
+    [ContextMenu("Next client")]
+    void NextClient()
+    {
+        currentClientIndex++;
+        if (currentClientIndex >= clients.Length) currentClientIndex = 0;
+        clipboard.SetClient(currentClient);
     }
 
     public static void PutThingInCauldron(Transform thing)
