@@ -111,6 +111,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _WarbleSpeed: 0.5
     - _WarpSpeed: 1
     - _WarpStrength: 0
     - _Width: 0.25

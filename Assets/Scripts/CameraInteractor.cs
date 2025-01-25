@@ -10,6 +10,7 @@ public class CameraInteractor : MonoBehaviour
 
     [SerializeField] float maxInteractDistance;
     [SerializeField] LayerMask layerMask;
+    [SerializeField] Animator handAnimator;
 
     IInteractable lastHover;
 
@@ -28,6 +29,7 @@ public class CameraInteractor : MonoBehaviour
             interactable.OnHover();
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                handAnimator.SetTrigger("Interact");
                 interactable.Interact();
             }
         }
@@ -36,6 +38,7 @@ public class CameraInteractor : MonoBehaviour
             lastHover.OnHoverEnd();
             lastHover = null;
         }
+        handAnimator.SetBool("Hovering", lastHover != null);
     }
 
     [ContextMenu("Reassign private component references")]
