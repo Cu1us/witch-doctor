@@ -113,7 +113,7 @@ Material:
     - _Surface: 0
     - _WarpSpeed: 1
     - _WarpStrength: 0
-    - _Width: 0.5
+    - _Width: 0.25
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

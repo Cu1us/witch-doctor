@@ -8,21 +8,27 @@ public class BaseInteractable : MonoBehaviour, IInteractable
     public UnityEvent OnInteract;
     [HideInInspector][SerializeField] new public Renderer renderer;
 
+    public bool interactable = true;
+
     public Material hoverMaterial;
     Material baseMaterial;
 
     public virtual void Interact()
     {
+        if (!interactable) return;
         OnInteract?.Invoke();
+        GameManager.PutThingInCauldron(transform);
     }
 
     public virtual void OnHover()
     {
+        if (!interactable) return;
 
     }
 
     public virtual void OnHoverStart()
     {
+        if (!interactable) return;
         renderer.sharedMaterials = new Material[] { baseMaterial, hoverMaterial };
     }
 
