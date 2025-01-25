@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] Camera cam;
+    [HideInInspector][SerializeField] Camera cam;
 
     Quaternion startRotation;
 
