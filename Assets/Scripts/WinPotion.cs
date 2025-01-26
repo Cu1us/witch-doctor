@@ -7,8 +7,6 @@ public class WinPotion : MonoBehaviour
 {
     public Transform liquidPart;
     public float rotationSpeed;
-    [SerializeField] private float Timer = 2;
-    private bool start = false;
 
     void Update()
     {
@@ -19,10 +17,8 @@ public class WinPotion : MonoBehaviour
 
     public void SetColor(Color color)
     {
-
         liquidPart.GetComponent<Renderer>().material.SetColor("_Color", color);
-        Invoke(nameof(PlaySound),3f);
-        
+        Invoke(nameof(PlaySound),3f);  
     }
 
     public void PlaySound()
