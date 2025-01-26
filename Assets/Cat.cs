@@ -7,10 +7,12 @@ public class Cat : MonoBehaviour
     public Renderer headRenderer;
     public Material unblink;
     public Material blink;
+    public float timer;
 
     void Start()
     {
         InvokeRepeating(nameof(Blink), 4, 2f);
+        timer = Time.deltaTime;
     }
 
     void Blink()
@@ -24,4 +26,15 @@ public class Cat : MonoBehaviour
     {
         headRenderer.sharedMaterial = unblink;
     }
+
+    void Sound()
+    {
+        if (timer < 0)
+        {
+            AudioManager.Play("Cat");
+            timer = Random.Range(10, 20);
+        }
+    }
+
+
 }
