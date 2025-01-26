@@ -89,7 +89,7 @@ public class Cauldron : MonoBehaviour
         OnPotionFail?.Invoke();
         AudioManager.Play("Puff Sad");
         GameManager.Instance.FailPotion();
-        AudioManager.Play("Harp Sad");
+        AudioManager.Play("Trombone");
     }
 
     public void Succeed()

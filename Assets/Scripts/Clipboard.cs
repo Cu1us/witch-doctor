@@ -62,6 +62,7 @@ public class Clipboard : MonoBehaviour
 
     public void SetClient(Client client)
     {
+        AudioManager.Play("Clipboard Paper");
         paper.DOLocalMoveX(paperLocalPos.x + 1.5f, 0.75f).OnComplete(() =>
         {
             AudioManager.Play("Clipboard Clip");
