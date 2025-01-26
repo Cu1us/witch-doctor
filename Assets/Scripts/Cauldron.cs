@@ -46,6 +46,12 @@ public class Cauldron : MonoBehaviour
     public ParticleSystem bubbles;
     public Material bubblesMaterial;
 
+    public ParticleSystem[] P_Company;
+    public ParticleSystem[] P_Ambition;
+    public ParticleSystem[] P_Money;
+    public ParticleSystem[] P_Peace;
+
+
     Tween potionTween;
     Tween surfaceTween;
 
@@ -110,10 +116,10 @@ public class Cauldron : MonoBehaviour
         .SetDelay(1.5f)
         .OnComplete(() =>
         {
-            
+
             startWaveSpeed = targetWaveSpeed = currentWaveSpeed = GetTargetWaveSpeed();
             transform.DOMoveY(surfaceFilledY, surfaceSinkDur);
-            
+
             Invoke(nameof(BackToGameplayAfterFail), surfaceSinkDur / 3.5f);
         });
     }
@@ -131,7 +137,6 @@ public class Cauldron : MonoBehaviour
     public void Succeed()
     {
         AudioManager.Play("Puff Glad");
-        ingredients.Clear();
         colors.Clear();
         winPotion.gameObject.SetActive(true);
         winPotion.SetColor(targetColor);
@@ -143,6 +148,37 @@ public class Cauldron : MonoBehaviour
         transform.DOMoveY(surfaceEmptyY, surfaceSinkDur);
         potionTween = winPotion.transform.DOMoveY(potionTopY, winPotionRiseDur).SetDelay(1);
         Invoke(nameof(PutBackWinPotion), winPotionSpinDuration);
+        Invoke(nameof(DoSplash), 1f);
+    }
+
+    void DoSplash()
+    {
+        Splash(ingredients.ToArray());
+        ingredients.Clear();
+    }
+
+    private void Splash(Ingredient[] content)
+    {
+        List<ParticleSystem> particleSystems = new();
+        foreach (Ingredient ingredient in content)
+        {
+            ParticleSystem[] systems = ingredient switch
+            {
+                Ingredient.COMPANY => P_Company,
+                Ingredient.AMBITION => P_Ambition,
+                Ingredient.PEACE => P_Peace,
+                _ => P_Money
+            };
+            foreach (ParticleSystem system in systems)
+            {
+                particleSystems.Add(system);
+            }
+        }
+        int countPer = 50 / particleSystems.Count;
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            particleSystem.Emit(countPer);
+        }
     }
 
     void PutBackWinPotion()
