@@ -147,3 +147,62 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 6ebabab9b4c21ab41af4ab4afd9daa5b, type: 3}
       pitchVariation: 0.1
       volume: 1
+  - name: Witch Random
+    data:
+      clips:
+      - {fileID: 8300000, guid: 0894eae4650fc7c428b5e4ba11688db3, type: 3}
+      - {fileID: 8300000, guid: d84c5fd5a785c314ab8a8ccb81169a5b, type: 3}
+      - {fileID: 8300000, guid: 29a49b2729a196e4196de95df56e6401, type: 3}
+      - {fileID: 8300000, guid: 9688446497a1dbb40ae1df41d3caa449, type: 3}
+      - {fileID: 8300000, guid: 30c9f6ea23b37f6449c321b0c547dbf1, type: 3}
+      - {fileID: 8300000, guid: bb181d77c546ad34395794736d46922c, type: 3}
+      - {fileID: 8300000, guid: 57b069af2621d5341b07e30aa7360def, type: 3}
+      - {fileID: 8300000, guid: 934cef497142bff4d98ec86bb4ed50ff, type: 3}
+      - {fileID: 8300000, guid: c1c4a1cbe5d722e4fa9fe4ff0fe5c9d7, type: 3}
+      - {fileID: 8300000, guid: d54918706c49f984fbaa30cedc709019, type: 3}
+      - {fileID: 8300000, guid: d9cb0f6551938fb47b81d5bccf65d969, type: 3}
+      - {fileID: 8300000, guid: 6926f3c34c0c81a43b0b561d584eed23, type: 3}
+      - {fileID: 8300000, guid: 486a5926ea1d6d8409850914a938f63c, type: 3}
+      - {fileID: 8300000, guid: 7b9d26c1d39223547b5696b0552e4b99, type: 3}
+      - {fileID: 8300000, guid: 7fe051c602aa95147b86bc2a48089ab2, type: 3}
+      - {fileID: 8300000, guid: 53aff1a730dc0034a9f252418ad08b04, type: 3}
+      - {fileID: 8300000, guid: 260307f5713636c409b8ff6609bc9e16, type: 3}
+      - {fileID: 8300000, guid: 27a914964e0559749bbebecc6d281422, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Witch Question
+    data:
+      clips:
+      - {fileID: 8300000, guid: 9243211626cd9704a90cf0ee8fc58190, type: 3}
+      - {fileID: 8300000, guid: 584426f55a68295489308f328fd62e13, type: 3}
+      - {fileID: 8300000, guid: 3ea88a11a1002b240a479aea9ed7785d, type: 3}
+      - {fileID: 8300000, guid: 4202aa91e24a27d4eac1a54325b307d5, type: 3}
+      - {fileID: 8300000, guid: a55deef6057d6264792aafb1b69171d1, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Witch Cat
+    data:
+      clips:
+      - {fileID: 8300000, guid: 2d17a39782dd46b40883ca823f4e8bc8, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Witch Bottle
+    data:
+      clips:
+      - {fileID: 8300000, guid: 60ce614162b95ab42996293136269eb4, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Witch Champange
+    data:
+      clips:
+      - {fileID: 8300000, guid: 301f179492a5ad9408837d4b5e105c30, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Witch fail
+    data:
+      clips:
+      - {fileID: 8300000, guid: 8faed28e86133d1488ed82e860042a7d, type: 3}
+      - {fileID: 8300000, guid: 9a31ca1150c37204596f4f4d162613f5, type: 3}
+      - {fileID: 8300000, guid: 511bffbdb6fbc3d4c988bebb171699b3, type: 3}
+      pitchVariation: 0.1
+      volume: 1
