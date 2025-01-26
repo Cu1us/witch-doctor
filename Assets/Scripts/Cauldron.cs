@@ -155,6 +155,8 @@ public class Cauldron : MonoBehaviour
     }
     void BackToGameplayAfterFail()
     {
+        ingredients.Clear();
+        colors.Clear();
         startColor = targetColor = currentColor = defaultColor;
         SetBubblesEmitting(true);
         cauldronIsMidAnimation = false;
