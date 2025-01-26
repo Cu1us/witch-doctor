@@ -40,7 +40,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: b801aacafc63d7940a0dcece410127c9, type: 3}
       - {fileID: 8300000, guid: 605eb37fffc216d4d87f0e07405e38c3, type: 3}
       pitchVariation: 0.1
-      volume: 0.576
+      volume: 0.323
   - name: Cat Angry
     data:
       clips:
@@ -84,7 +84,7 @@ MonoBehaviour:
       clips:
       - {fileID: 8300000, guid: f17f2dc4343e8684d80c7f8ab0f7fc93, type: 3}
       pitchVariation: 0.1
-      volume: 1
+      volume: 0.535
   - name: Glass Cling
     data:
       clips:
