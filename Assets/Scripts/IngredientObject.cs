@@ -9,6 +9,7 @@ public class IngredientObject : BaseInteractable
 
     public override void Interact()
     {
+        if (Cauldron.cauldronIsMidAnimation) return;
         base.Interact();
         GameManager.PutThingInCauldron(transform, ingredientValue, ingredientColor);
     }

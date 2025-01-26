@@ -13,7 +13,8 @@ public class Cauldron : MonoBehaviour
     public List<Color> colors;
     public float animationDuration;
     public AnimationCurve animationCurve;
-    [SerializeField] Color startColor;
+    public Color defaultColor;
+    Color startColor;
     Color targetColor;
     float colorAnimStartTime;
     Color currentColor;
@@ -40,19 +41,19 @@ public class Cauldron : MonoBehaviour
 
     public WinPotion winPotion;
 
-    bool midAnimation = false;
+    public static bool cauldronIsMidAnimation = false;
 
     Tween potionTween;
     Tween surfaceTween;
 
     void Start()
     {
-        targetColor = startColor;
+        targetColor = startColor = defaultColor;
         currentWaveSpeed = startWaveSpeed = targetWaveSpeed = GetTargetWaveSpeed();
     }
     public void AddIngredient(Ingredient toAdd, Color color)
     {
-        if (midAnimation) return;
+        if (cauldronIsMidAnimation) return;
         ingredients.Add(toAdd);
         colors.Add(color);
         UpdateColor();
@@ -65,18 +66,18 @@ public class Cauldron : MonoBehaviour
     {
         if (ingredients.Count > GameManager.currentClient.neededIngredients.Length)
         {
-            midAnimation = true;
+            cauldronIsMidAnimation = true;
             Fail();
         }
         else if (HasWrongIngredients())
         {
-            midAnimation = true;
+            cauldronIsMidAnimation = true;
             Fail();
         }
         else if (HasAllIngredients())
         {
-            midAnimation = true;
-            Invoke(nameof(Succeed), animationDuration);
+            cauldronIsMidAnimation = true;
+            Invoke(nameof(Succeed), animationDuration / 2f);
         }
     }
 
@@ -88,31 +89,38 @@ public class Cauldron : MonoBehaviour
 
     public void Succeed()
     {
+        ingredients.Clear();
+        colors.Clear();
         winPotion.gameObject.SetActive(true);
+        winPotion.SetColor(targetColor);
         winPotion.DOKill();
         transform.DOKill();
         OnPotionSucceed?.Invoke();
         GameManager.Instance.SucceedPotion();
-        surfaceTween = transform.DOMoveY(surfaceEmptyY, surfaceSinkDur);
+        transform.DOMoveY(surfaceEmptyY, surfaceSinkDur);
         potionTween = winPotion.transform.DOMoveY(potionTopY, winPotionRiseDur).SetDelay(1);
         Invoke(nameof(PutBackWinPotion), winPotionSpinDuration);
     }
 
     void PutBackWinPotion()
     {
-        surfaceTween.Rewind(false);
+        transform.DOMoveY(surfaceFilledY, surfaceSinkDur);
+        startColor = targetColor = currentColor = defaultColor;
+        startWaveSpeed = targetWaveSpeed = currentWaveSpeed = GetTargetWaveSpeed();
         winPotion.transform.DOJump(new Vector3(winPotion.transform.position.x, potionTopY, potionGoneZ), potionGoneJumpHeight, 1, potionJumpAwayDur)
+        .SetEase(Ease.Linear)
         .OnComplete(() =>
         {
             winPotion.transform.position = new Vector3(winPotion.transform.position.x, potionBottomY, potionHereZ);
             winPotion.gameObject.SetActive(false);
         });
-        Invoke(nameof(BackToGameplay), surfaceSinkDur / 2f);
+        Invoke(nameof(BackToGameplayAfterSuccess), surfaceSinkDur / 2f);
     }
 
-    void BackToGameplay()
+    void BackToGameplayAfterSuccess()
     {
-        midAnimation = false;
+        GameManager.Instance.NextClient();
+        cauldronIsMidAnimation = false;
     }
 
     float GetTargetWaveSpeed()
