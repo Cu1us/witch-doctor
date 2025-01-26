@@ -18,7 +18,7 @@ MonoBehaviour:
       clips:
       - {fileID: 8300000, guid: 91c896e1a2d3b53468ec4e687f37c7f3, type: 3}
       pitchVariation: 0.1
-      volume: 1
+      volume: 0.4
   - name: Cat
     data:
       clips:
@@ -169,7 +169,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 260307f5713636c409b8ff6609bc9e16, type: 3}
       - {fileID: 8300000, guid: 27a914964e0559749bbebecc6d281422, type: 3}
       pitchVariation: 0.1
-      volume: 1
+      volume: 0.64
   - name: Witch Question
     data:
       clips:

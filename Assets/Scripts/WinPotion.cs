@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class WinPotion : MonoBehaviour
 {
-    Transform liquidPart;
+    public Transform liquidPart;
+    public float rotationSpeed;
 
     void Update()
     {
-        liquidPart.transform.rotation = Quaternion.FromToRotation(Vector3.forward, Vector3.down);
+        liquidPart.transform.rotation = Quaternion.FromToRotation(Vector3.forward, Vector3.up);
+
+        transform.rotation *= Quaternion.Euler(0, Time.time * rotationSpeed * Mathf.Deg2Rad, 0);
     }
 }
