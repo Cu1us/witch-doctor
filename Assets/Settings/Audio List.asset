@@ -55,3 +55,95 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 779e091f21dea2d4ab6d0bbbab066edd, type: 3}
       pitchVariation: 0.1
       volume: 1
+  - name: Clipboard Turn
+    data:
+      clips:
+      - {fileID: 8300000, guid: 620732e5bcad0e342a0c9634d031bbc1, type: 3}
+      - {fileID: 8300000, guid: f48a96e59c48a5a4d97b03310f0e0bfe, type: 3}
+      - {fileID: 8300000, guid: d1634d9cc0ea07f4493c0f50ceb6839d, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Fire
+    data:
+      clips:
+      - {fileID: 8300000, guid: f17f2dc4343e8684d80c7f8ab0f7fc93, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Clipboard Paper
+    data:
+      clips:
+      - {fileID: 8300000, guid: f348392ce8261d2418f917b698b25f20, type: 3}
+      - {fileID: 8300000, guid: e3b27c7ccdbed6b4aa08100155010b19, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Clipboard Clip
+    data:
+      clips:
+      - {fileID: 8300000, guid: 0efaaea8d21eb4e4aad7694a2691d322, type: 3}
+      - {fileID: 8300000, guid: 55a071c5d594e944ca9cd1de0c8e9614, type: 3}
+      - {fileID: 8300000, guid: cde35604762850a47abbaa354da2bfd9, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Chain
+    data:
+      clips:
+      - {fileID: 8300000, guid: 3cda4ff6e6a0f344a9b5e1356e818b38, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Glass Cling
+    data:
+      clips:
+      - {fileID: 8300000, guid: ca9eab1c4761f1f48bb3f54e3188d122, type: 3}
+      - {fileID: 8300000, guid: c1e5c94c04682d44d974799b7e7a8484, type: 3}
+      - {fileID: 8300000, guid: c1e5c94c04682d44d974799b7e7a8484, type: 3}
+      - {fileID: 8300000, guid: f03c6d8a65a6c0044a9081840db79937, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Puff Glad
+    data:
+      clips:
+      - {fileID: 8300000, guid: 7d00d01d41131db4f94e517155e71fb1, type: 3}
+      - {fileID: 8300000, guid: 68f36ef8c4fdd0d489d22864e3ef2902, type: 3}
+      - {fileID: 8300000, guid: ca45f6ee603a3174e9b7c41d7b21f2ad, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Puff Sad
+    data:
+      clips:
+      - {fileID: 8300000, guid: 333085d6b0126924da5753b78e1670b3, type: 3}
+      - {fileID: 8300000, guid: 10d7cd313d9510d448b71bdd702d805d, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Splash
+    data:
+      clips:
+      - {fileID: 8300000, guid: e3210a091e82bd64e91c4b915a3a2da9, type: 3}
+      - {fileID: 8300000, guid: a893427a3130e2b43bb49e9951068df6, type: 3}
+      - {fileID: 8300000, guid: b4c01ada02e110f4eb451aa542100745, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Bottle Ding
+    data:
+      clips:
+      - {fileID: 8300000, guid: f03c6d8a65a6c0044a9081840db79937, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Bottle Pour
+    data:
+      clips:
+      - {fileID: 8300000, guid: 76f100ae2a0a5d044b75e49e78eee021, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Splat
+    data:
+      clips:
+      - {fileID: 8300000, guid: 57f2308052260c3439d4859141f9a562, type: 3}
+      - {fileID: 8300000, guid: 3f7b837470677e0438f1a6c4acd6e695, type: 3}
+      pitchVariation: 0.1
+      volume: 1
+  - name: Trombone
+    data:
+      clips:
+      - {fileID: 8300000, guid: 6ebabab9b4c21ab41af4ab4afd9daa5b, type: 3}
+      pitchVariation: 0.1
+      volume: 1
