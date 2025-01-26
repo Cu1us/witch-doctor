@@ -43,12 +43,16 @@ public class Cauldron : MonoBehaviour
 
     public static bool cauldronIsMidAnimation = false;
 
+    public ParticleSystem bubbles;
+    public Material bubblesMaterial;
+
     Tween potionTween;
     Tween surfaceTween;
 
     void Start()
     {
         targetColor = startColor = defaultColor;
+        SetBubblesColor(defaultColor);
         currentWaveSpeed = startWaveSpeed = targetWaveSpeed = GetTargetWaveSpeed();
     }
     public void AddIngredient(Ingredient toAdd, Color color)
@@ -62,24 +66,34 @@ public class Cauldron : MonoBehaviour
         CheckIngredients();
     }
 
-
+    void SetBubblesEmitting(bool active)
+    {
+        var emission = bubbles.emission;
+        emission.enabled = active;
+    }
+    void SetBubblesColor(Color color)
+    {
+        bubblesMaterial.SetColor("_Color", color);
+    }
 
     private void CheckIngredients()
     {
         if (ingredients.Count > GameManager.currentClient.neededIngredients.Length)
         {
             cauldronIsMidAnimation = true;
+            SetBubblesEmitting(false);
             Fail();
         }
         else if (HasWrongIngredients())
         {
             cauldronIsMidAnimation = true;
-           
+            SetBubblesEmitting(false);
             Fail();
         }
         else if (HasAllIngredients())
         {
             cauldronIsMidAnimation = true;
+            SetBubblesEmitting(false);
             Invoke(nameof(Succeed), animationDuration / 2f);
         }
     }
@@ -127,6 +141,7 @@ public class Cauldron : MonoBehaviour
     void BackToGameplayAfterSuccess()
     {
         GameManager.Instance.NextClient();
+        SetBubblesEmitting(true);
         cauldronIsMidAnimation = false;
     }
 
@@ -164,6 +179,7 @@ public class Cauldron : MonoBehaviour
         //Debug.Log($"Current: {-currentWaveSpeed}, progress: {waveProgress}");
 
         renderer.material.SetColor("_Color", currentColor);
+        SetBubblesColor(currentColor);
         renderer.material.SetFloat("_WaveSpeed", -currentWaveSpeed);
     }
 
