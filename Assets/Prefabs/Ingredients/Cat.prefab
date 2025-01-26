@@ -670,6 +670,7 @@ MonoBehaviour:
   headRenderer: {fileID: 1210002451618525498}
   unblink: {fileID: 2100000, guid: 6790bf2a04f6d5d4e9dccd511d811f2d, type: 2}
   blink: {fileID: 2100000, guid: e9a0543bba031ad418518c2aa5455c72, type: 2}
+  timer: 0
 --- !u!65 &8385612692098967460
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -734,7 +735,7 @@ MonoBehaviour:
   interactable: 1
   hoverMaterial: {fileID: 2100000, guid: 43663c5bddb9a13dfab7babcf13caa87, type: 2}
   ingredientValue: 0
-  ingredientColor: {r: 0.21698111, g: 0.15992968, b: 0.111561045, a: 1}
+  ingredientColor: {r: 0.08446932, g: 0.317221, b: 0.1331499, a: 1}
 --- !u!1 &8234746777327490747
 GameObject:
   m_ObjectHideFlags: 0

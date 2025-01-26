@@ -57,8 +57,9 @@ public class Cauldron : MonoBehaviour
     }
     public void AddIngredient(Ingredient toAdd, Color color)
     {
-        AudioManager.Play("Bottle Pour");
         if (cauldronIsMidAnimation) return;
+        bubbles.Emit(10);
+        AudioManager.Play("Bottle Pour");
         ingredients.Add(toAdd);
         colors.Add(color);
         UpdateColor();
@@ -104,6 +105,14 @@ public class Cauldron : MonoBehaviour
         AudioManager.Play("Puff Sad");
         GameManager.Instance.FailPotion();
         AudioManager.Play("Trombone");
+        transform.DOMoveY(surfaceEmptyY, surfaceSinkDur + 0.5f)
+        .SetDelay(1.5f)
+        .OnComplete(() =>
+        {
+            startWaveSpeed = targetWaveSpeed = currentWaveSpeed = GetTargetWaveSpeed();
+            transform.DOMoveY(surfaceFilledY, surfaceSinkDur);
+            Invoke(nameof(BackToGameplayAfterFail), surfaceSinkDur / 3.5f);
+        });
     }
 
     public void Succeed()
@@ -141,6 +150,14 @@ public class Cauldron : MonoBehaviour
     void BackToGameplayAfterSuccess()
     {
         GameManager.Instance.NextClient();
+        SetBubblesEmitting(true);
+        cauldronIsMidAnimation = false;
+    }
+    void BackToGameplayAfterFail()
+    {
+        ingredients.Clear();
+        colors.Clear();
+        startColor = targetColor = currentColor = defaultColor;
         SetBubblesEmitting(true);
         cauldronIsMidAnimation = false;
     }
