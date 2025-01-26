@@ -5,7 +5,7 @@ using UnityEngine;
 public class WitchRandomSounds : MonoBehaviour
 {
 
-    [SerializeField] float timer = 20;
+    float timer = 10;
 
     // Update is called once per frame
     void Update()
@@ -14,7 +14,7 @@ public class WitchRandomSounds : MonoBehaviour
         if (timer < 0)
         {
             AudioManager.Play("Witch Random");
-            timer = Random.Range(20,30);
+            timer = Random.Range(7,15);
         }
     }
 
