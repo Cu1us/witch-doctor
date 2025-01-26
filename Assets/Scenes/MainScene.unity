@@ -45984,7 +45984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPart: {fileID: 2536711007202124712}
-  rotationSpeed: 5
+  rotationSpeed: 2
 --- !u!4 &1947307411
 Transform:
   m_ObjectHideFlags: 0
@@ -63294,15 +63294,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startColor: {r: 0.57014894, g: 0.8438109, b: 1, a: 1}
+  defaultColor: {r: 0.40793365, g: 0.8168866, b: 1, a: 1}
   waveSpeedAnimationDuration: 0
   surfaceFilledY: 2.86
   surfaceEmptyY: 1.6
-  surfaceSinkDur: 2
+  surfaceSinkDur: 3
   potionTopY: 4.5
   potionBottomY: 0.35
   potionHereZ: -3.55
-  potionGoneZ: 0
+  potionGoneZ: 3
   potionGoneJumpHeight: 3.5
   potionJumpAwayDur: 2.5
   winPotionRiseDur: 2.5

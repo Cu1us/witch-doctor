@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     }
 
     [ContextMenu("Next client")]
-    void NextClient()
+    public void NextClient()
     {
         currentClientIndex++;
         if (currentClientIndex >= clients.Length) currentClientIndex = 0;
