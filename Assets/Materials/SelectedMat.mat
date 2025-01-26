@@ -84,6 +84,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _BaseWidth: 0.1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -112,10 +113,10 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _WarbleSpeed: 0.5
+    - _WarbleSpeed: 0.4
     - _WarpSpeed: 1
     - _WarpStrength: 0
-    - _Width: 0.125
+    - _Width: 0.1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

@@ -12,10 +12,22 @@ public class CameraInteractor : MonoBehaviour
     [SerializeField] LayerMask layerMask;
     [SerializeField] Animator handAnimator;
 
+    [SerializeField] float unzoomedFOV;
+    [SerializeField] float zoomedFOV;
+    [SerializeField] float zoomDuration;
+    [SerializeField] AnimationCurve zoomCurve;
+    float zoomProgress;
+    public Camera handCam;
+
     IInteractable lastHover;
 
     void Update()
     {
+        zoomProgress = Mathf.Clamp01(zoomProgress + Time.deltaTime / zoomDuration * (Input.GetKey(KeyCode.Mouse1) ? 1 : -1));
+        float fov = Mathf.Lerp(unzoomedFOV, zoomedFOV, zoomCurve.Evaluate(zoomProgress));
+        cam.fieldOfView = fov;
+        handCam.fieldOfView = (fov - unzoomedFOV) * 0.5f + unzoomedFOV;
+
         interactRay = cam.ViewportPointToRay(new Vector2(0.5f, 0.5f));
         Debug.DrawRay(interactRay.origin, interactRay.direction * 100, Color.yellow);
         Physics.Raycast(interactRay, out RaycastHit hitInfo, maxInteractDistance, layerMask);
