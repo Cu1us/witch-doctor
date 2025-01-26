@@ -22,6 +22,8 @@ public class Spawner : MonoBehaviour
             spawnTimer += Time.deltaTime;
             if (spawnTimer > spawnCooldown)
             {
+                AudioManager.Play("Puff Glad");
+                AudioManager.Play("Glass Cling");
                 spawnTimer = 0;
                 spawnedObject = Instantiate(prefab, transform.position, transform.rotation, transform);
                 GameManager.SpawnParticle(GameManager.Instance.poofParticle, transform.position);
