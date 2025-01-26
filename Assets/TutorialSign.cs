@@ -14,6 +14,7 @@ public class TutorialSign : MonoBehaviour
     public void ToggleVisible()
     {
         if (moving) return;
+        AudioManager.Play("Chain");
         if (isVisible)
         {
             moving = true;
@@ -31,6 +32,7 @@ public class TutorialSign : MonoBehaviour
     {
         if (isVisible && !moving && Input.GetKeyDown(KeyCode.Mouse0))
         {
+           
             ToggleVisible();
         }
     }
