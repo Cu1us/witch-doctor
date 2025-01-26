@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf3f75117ce8657ada8f533a8b9e617e, type: 3}
-  m_Name: RICHES_COMP_RICHES
+  m_Name: COMP_RICH_AMBITION
   m_EditorClassIdentifier: 
   clipboardTexture: {fileID: 2800000, guid: 75a4d58aba4832245b85dd7ebb02aef0, type: 3}
   neededIngredients: 000000000100000002000000

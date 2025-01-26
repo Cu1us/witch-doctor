@@ -40,7 +40,6 @@ public class Clipboard : MonoBehaviour
         float lerp = mainCamera.transform.eulerAngles.x;
         if (lerp > 180f) lerp = 0;
         lerp = 1 - Mathf.Clamp01(lerp / 60);
-        Debug.Log(mainCamera.transform.eulerAngles);
         transform.position = Vector3.Lerp(clipboardDownPos.position, clipboardUpPos.position, lerp);
         transform.rotation = Quaternion.Lerp(clipboardDownPos.rotation, clipboardUpPos.rotation, lerp);
 

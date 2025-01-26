@@ -11,14 +11,24 @@ public class Cauldron : MonoBehaviour
     public List<Color> colors;
     public float animationDuration;
     public AnimationCurve animationCurve;
-    Color startColor;
+    [SerializeField] Color startColor;
     Color targetColor;
     float colorAnimStartTime;
     Color currentColor;
+    float currentWaveSpeed;
+    float startWaveSpeed;
+    float targetWaveSpeed;
+    public float waveSpeedAnimationDuration;
 
+    void Start()
+    {
+        targetColor = startColor;
+        currentWaveSpeed = startWaveSpeed = targetWaveSpeed = GetTargetWaveSpeed();
+    }
     public void AddIngredient(Ingredient toAdd, Color color)
     {
         ingredients.Add(toAdd);
+        colors.Add(color);
         UpdateColor();
         CheckIngredients();
     }
@@ -28,8 +38,14 @@ public class Cauldron : MonoBehaviour
 
     }
 
+    float GetTargetWaveSpeed()
+    {
+        return 200f * ingredients.Count + 360f;
+    }
+
     void UpdateColor()
     {
+        colorAnimStartTime = Time.time;
         startColor = currentColor;
         float r = 0, g = 0, b = 0;
         for (int i = 0; i < colors.Count; i++)
@@ -42,14 +58,21 @@ public class Cauldron : MonoBehaviour
         g /= colors.Count;
         b /= colors.Count;
         targetColor = new Color(r, g, b);
+        startWaveSpeed = currentWaveSpeed;
+        targetWaveSpeed = GetTargetWaveSpeed();
     }
 
     void Update()
     {
-        float progress = Mathf.Clamp01((Time.time - colorAnimStartTime) / animationDuration);
+        float progress = animationCurve.Evaluate(Mathf.Clamp01((Time.time - colorAnimStartTime) / animationDuration));
+        float waveProgress = animationCurve.Evaluate(Mathf.Clamp01((Time.time - colorAnimStartTime) / waveSpeedAnimationDuration));
+
         currentColor = Color.Lerp(startColor, targetColor, progress);
+        currentWaveSpeed = Mathf.Lerp(startWaveSpeed, targetWaveSpeed, waveProgress);
+        //Debug.Log($"Current: {-currentWaveSpeed}, progress: {waveProgress}");
 
         renderer.material.SetColor("_Color", currentColor);
+        renderer.material.SetFloat("_WaveSpeed", -currentWaveSpeed);
     }
 
     public bool HasAllIngredients()
