@@ -45,6 +45,8 @@ public class Clipboard : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && !flipping)
         {
+
+            AudioManager.Play("Clipboard Turn");
             Vector3 flipTargetRot = Vector3.right * (flipped ? unflippedRot : flippedRot);
             flipped = !flipped;
             clipboardContainer.DOLocalRotate(flipTargetRot, flipDuration)
@@ -62,7 +64,9 @@ public class Clipboard : MonoBehaviour
     {
         paper.DOLocalMoveX(paperLocalPos.x + 1.5f, 0.75f).OnComplete(() =>
         {
+            AudioManager.Play("Clipboard Clip");
             paperRenderer.material.mainTexture = client.clipboardTexture;
+            AudioManager.Play("Clipboard Paper");
             paper.DOLocalMoveX(paperLocalPos.x, 0.75f);
         });
     }
