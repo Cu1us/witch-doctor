@@ -128,7 +128,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 60370bfac53f3974e9817eccecd5ee7f, type: 3}
       - {fileID: 8300000, guid: 61cf7bb4eb982b647aa3ae138c32fe43, type: 3}
       pitchVariation: 0.1
-      volume: 1
+      volume: 0.747
   - name: Splash
     data:
       clips:
@@ -172,7 +172,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 260307f5713636c409b8ff6609bc9e16, type: 3}
       - {fileID: 8300000, guid: 27a914964e0559749bbebecc6d281422, type: 3}
       pitchVariation: 0.1
-      volume: 0.33
+      volume: 0.786
   - name: Witch Question
     data:
       clips:

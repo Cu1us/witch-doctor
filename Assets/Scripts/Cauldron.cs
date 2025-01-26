@@ -104,15 +104,28 @@ public class Cauldron : MonoBehaviour
         OnPotionFail?.Invoke();
         AudioManager.Play("Puff Sad");
         GameManager.Instance.FailPotion();
-        AudioManager.Play("Trombone");
+        Invoke(nameof(PlaySoundTromb), 0.5f);
+        Invoke(nameof(PlaySoundWitch), 2.8f);
         transform.DOMoveY(surfaceEmptyY, surfaceSinkDur + 0.5f)
         .SetDelay(1.5f)
         .OnComplete(() =>
         {
+            
             startWaveSpeed = targetWaveSpeed = currentWaveSpeed = GetTargetWaveSpeed();
             transform.DOMoveY(surfaceFilledY, surfaceSinkDur);
+            
             Invoke(nameof(BackToGameplayAfterFail), surfaceSinkDur / 3.5f);
         });
+    }
+
+    public void PlaySoundWitch()
+    {
+        AudioManager.Play("Witch fail");
+    }
+
+    public void PlaySoundTromb()
+    {
+        AudioManager.Play("Trombone");
     }
 
     public void Succeed()
