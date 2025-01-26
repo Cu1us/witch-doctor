@@ -53,10 +53,12 @@ public class Cauldron : MonoBehaviour
     }
     public void AddIngredient(Ingredient toAdd, Color color)
     {
+        AudioManager.Play("Bottle Pour");
         if (cauldronIsMidAnimation) return;
         ingredients.Add(toAdd);
         colors.Add(color);
         UpdateColor();
+        AudioManager.Play("Splash");
         CheckIngredients();
     }
 
@@ -72,6 +74,7 @@ public class Cauldron : MonoBehaviour
         else if (HasWrongIngredients())
         {
             cauldronIsMidAnimation = true;
+           
             Fail();
         }
         else if (HasAllIngredients())
@@ -84,15 +87,19 @@ public class Cauldron : MonoBehaviour
     public void Fail()
     {
         OnPotionFail?.Invoke();
+        AudioManager.Play("Puff Sad");
         GameManager.Instance.FailPotion();
+        AudioManager.Play("Harp Sad");
     }
 
     public void Succeed()
     {
+        AudioManager.Play("Puff Glad");
         ingredients.Clear();
         colors.Clear();
         winPotion.gameObject.SetActive(true);
         winPotion.SetColor(targetColor);
+        AudioManager.Play("Harp Happy");
         winPotion.DOKill();
         transform.DOKill();
         OnPotionSucceed?.Invoke();
