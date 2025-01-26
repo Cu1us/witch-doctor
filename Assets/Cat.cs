@@ -12,7 +12,7 @@ public class Cat : MonoBehaviour
     void Start()
     {
         
-        InvokeRepeating(nameof(Blink), 4, 3f);
+        InvokeRepeating(nameof(Blink), 4, 2f);
         
     }
 
@@ -42,6 +42,6 @@ public class Cat : MonoBehaviour
             timer = Random.Range(20, 40);
         }
     }
-    
+
 
 }

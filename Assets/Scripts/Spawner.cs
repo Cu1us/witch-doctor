@@ -10,6 +10,11 @@ public class Spawner : MonoBehaviour
 
     float spawnTimer = 0;
 
+    void Start()
+    {
+        spawnedObject = Instantiate(prefab, transform.position, transform.rotation, transform);
+    }
+
     void Update()
     {
         if (spawnedObject == null)

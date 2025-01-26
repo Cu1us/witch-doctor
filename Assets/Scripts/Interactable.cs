@@ -38,6 +38,7 @@ public class BaseInteractable : MonoBehaviour, IInteractable
 
     public virtual void OnHoverEnd()
     {
+        if (renderer == null) return;
         renderer.sharedMaterials = new Material[] { baseMaterial };
     }
 
