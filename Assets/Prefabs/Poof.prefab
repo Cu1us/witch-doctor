@@ -1401,7 +1401,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 46839
+        atime1: 32431
         atime2: 65535
         atime3: 65535
         atime4: 0
@@ -4853,7 +4853,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e8524563b5309797937c076f4691059, type: 2}
+  - {fileID: 2100000, guid: 6280f3f8499958f45a3a9c254c290ff0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

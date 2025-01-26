@@ -128,7 +128,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 60370bfac53f3974e9817eccecd5ee7f, type: 3}
       - {fileID: 8300000, guid: 61cf7bb4eb982b647aa3ae138c32fe43, type: 3}
       pitchVariation: 0.1
-      volume: 0.747
+      volume: 0.348
   - name: Splash
     data:
       clips:
