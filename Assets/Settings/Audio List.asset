@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: Audio List
   m_EditorClassIdentifier: 
   audioAssets:
-  - name: Cauldron
-    data:
-      clips:
-      - {fileID: 8300000, guid: 91c896e1a2d3b53468ec4e687f37c7f3, type: 3}
-      pitchVariation: 0.1
-      volume: 0.4
   - name: Cat
     data:
       clips:
@@ -62,7 +56,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: f48a96e59c48a5a4d97b03310f0e0bfe, type: 3}
       - {fileID: 8300000, guid: d1634d9cc0ea07f4493c0f50ceb6839d, type: 3}
       pitchVariation: 0.1
-      volume: 1
+      volume: 0.53
   - name: Fire
     data:
       clips:
@@ -169,7 +163,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 260307f5713636c409b8ff6609bc9e16, type: 3}
       - {fileID: 8300000, guid: 27a914964e0559749bbebecc6d281422, type: 3}
       pitchVariation: 0.1
-      volume: 0.64
+      volume: 0.33
   - name: Witch Question
     data:
       clips:
