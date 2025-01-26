@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Cauldron : MonoBehaviour
 {
@@ -20,6 +22,29 @@ public class Cauldron : MonoBehaviour
     float targetWaveSpeed;
     public float waveSpeedAnimationDuration;
 
+    public float surfaceFilledY;
+    public float surfaceEmptyY;
+    public float surfaceSinkDur;
+    public float potionTopY;
+    public float potionBottomY;
+    public float potionHereZ;
+    public float potionGoneZ;
+    public float potionGoneJumpHeight;
+    public float potionJumpAwayDur;
+
+    public float winPotionRiseDur;
+    public float winPotionSpinDuration;
+
+    public UnityEvent OnPotionSucceed;
+    public UnityEvent OnPotionFail;
+
+    public WinPotion winPotion;
+
+    bool midAnimation = false;
+
+    Tween potionTween;
+    Tween surfaceTween;
+
     void Start()
     {
         targetColor = startColor;
@@ -27,15 +52,67 @@ public class Cauldron : MonoBehaviour
     }
     public void AddIngredient(Ingredient toAdd, Color color)
     {
+        if (midAnimation) return;
         ingredients.Add(toAdd);
         colors.Add(color);
         UpdateColor();
         CheckIngredients();
     }
 
+
+
     private void CheckIngredients()
     {
+        if (ingredients.Count > GameManager.currentClient.neededIngredients.Length)
+        {
+            midAnimation = true;
+            Fail();
+        }
+        else if (HasWrongIngredients())
+        {
+            midAnimation = true;
+            Fail();
+        }
+        else if (HasAllIngredients())
+        {
+            midAnimation = true;
+            Invoke(nameof(Succeed), animationDuration);
+        }
+    }
 
+    public void Fail()
+    {
+        OnPotionFail?.Invoke();
+        GameManager.Instance.FailPotion();
+    }
+
+    public void Succeed()
+    {
+        winPotion.gameObject.SetActive(true);
+        winPotion.DOKill();
+        transform.DOKill();
+        OnPotionSucceed?.Invoke();
+        GameManager.Instance.SucceedPotion();
+        surfaceTween = transform.DOMoveY(surfaceEmptyY, surfaceSinkDur);
+        potionTween = winPotion.transform.DOMoveY(potionTopY, winPotionRiseDur).SetDelay(1);
+        Invoke(nameof(PutBackWinPotion), winPotionSpinDuration);
+    }
+
+    void PutBackWinPotion()
+    {
+        surfaceTween.Rewind(false);
+        winPotion.transform.DOJump(new Vector3(winPotion.transform.position.x, potionTopY, potionGoneZ), potionGoneJumpHeight, 1, potionJumpAwayDur)
+        .OnComplete(() =>
+        {
+            winPotion.transform.position = new Vector3(winPotion.transform.position.x, potionBottomY, potionHereZ);
+            winPotion.gameObject.SetActive(false);
+        });
+        Invoke(nameof(BackToGameplay), surfaceSinkDur / 2f);
+    }
+
+    void BackToGameplay()
+    {
+        midAnimation = false;
     }
 
     float GetTargetWaveSpeed()
@@ -85,6 +162,17 @@ public class Cauldron : MonoBehaviour
             }
         }
         return ingredients.Count == GameManager.currentClient.neededIngredients.Length;
+    }
+    public bool HasWrongIngredients()
+    {
+        foreach (Ingredient ingredient in ingredients)
+        {
+            if (!GameManager.currentClient.neededIngredients.Contains(ingredient))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     [ContextMenu("Reassign private component references")]

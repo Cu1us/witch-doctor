@@ -33,6 +33,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void FailPotion()
+    {
+
+    }
+    public void SucceedPotion()
+    {
+
+    }
+
     [ContextMenu("Next client")]
     void NextClient()
     {
