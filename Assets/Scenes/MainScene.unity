@@ -51193,7 +51193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquidPart: {fileID: 2536711007202124712}
-  rotationSpeed: 2
+  rotationSpeed: 180
 --- !u!4 &1947307411
 Transform:
   m_ObjectHideFlags: 0
@@ -67048,6 +67048,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   winPotion: {fileID: 1947307410}
+  bubbles: {fileID: 153754434}
+  bubblesMaterial: {fileID: 2100000, guid: 8e170bfb7f79bb16e9a98e4f15cf48a0, type: 2}
 --- !u!1 &9158743095299684296
 GameObject:
   m_ObjectHideFlags: 0

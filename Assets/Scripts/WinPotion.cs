@@ -11,7 +11,7 @@ public class WinPotion : MonoBehaviour
     {
         liquidPart.transform.rotation = Quaternion.FromToRotation(Vector3.forward, Vector3.up);
 
-        transform.rotation *= Quaternion.Euler(0, Time.time * rotationSpeed * Mathf.Deg2Rad, 0);
+        transform.rotation *= Quaternion.Euler(0, Time.deltaTime * rotationSpeed * Mathf.Deg2Rad, 0);
     }
 
     public void SetColor(Color color)
