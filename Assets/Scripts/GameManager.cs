@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
             Destroy(thing.gameObject);
             Instance.cauldron.AddIngredient(ingredientValue, ingredientColor);
         });
+        thing.transform.DORotateQuaternion(thing.transform.rotation * Quaternion.FromToRotation(Vector3.up, Vector3.down), Instance.cauldronInsertJumpDuration)
+        .SetEase(Ease.Linear);
     }
 
     public static void SpawnParticle(GameObject particle, Vector3 position)
