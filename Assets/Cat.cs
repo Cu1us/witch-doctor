@@ -7,7 +7,7 @@ public class Cat : MonoBehaviour
     public Renderer headRenderer;
     public Material unblink;
     public Material blink;
-    public float timer = 20;
+    public float timer = 25;
 
     void Start()
     {
